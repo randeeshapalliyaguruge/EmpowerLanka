@@ -7,6 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
             {{-- <div class="bg-white rounded-lg shadow-xl pb-8">
                 <div class="w-full h-[250px]">
                     <img src="{{ $cover }}" class="w-full h-full rounded-tl-lg rounded-tr-lg">

@@ -8,8 +8,10 @@
                         class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28">
                     <h5 class="hidden mt-4 text-xl font-semibold text-gray-600 lg:block">
                         {{ $user->first_name . ' ' . $user->last_name }}
+
                     </h5>
-                    <span class="hidden text-gray-400 lg:block">Admin</span>
+                    {{-- <span class="hidden text-gray-400 lg:block">Admin</span> --}}
+
                 </div>
 
                 <ul class="space-y-2 tracking-wide mt-8">

@@ -25,10 +25,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string'],
-            'city' => ['required', 'string', 'max:255'],
-            'province' => ['required', 'string', 'max:255'],
-            'postal_code' => ['required', 'string', 'max:255'],
+            'address' => [ 'string'],
+            'city' => [ 'string', 'max:255'],
+            'province' => [ 'string', 'max:255'],
+            'postal_code' => [ 'string', 'max:255'],
 
         ])->validateWithBag('updateProfileInformation');
 

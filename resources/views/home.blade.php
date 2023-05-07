@@ -46,11 +46,6 @@
                     @livewire('livewire-hotel-card', ['hotel' => $hotel])
                 @endforeach
             </div>
-
-
-
-
-
         </div>
     </div> --}}
 
@@ -69,7 +64,7 @@
 
     <div class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
         <div class="absolute top-0 w-full h-full bg-center bg-cover" style="
-            background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80');
+            background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
           ">
           <span id="blackOverlay" class="w-full h-full absolute opacity-75 bg-black"></span>
         </div>
@@ -92,10 +87,11 @@
             <polygon class="text-blueGray-200 fill-current" points="2560 0 2560 100 0 100"></polygon>
           </svg>
         </div>
-      </div>
-      <section class="pb-10 bg-blueGray-200 -mt-24">
+    </div>
+
+    <section class="pb-10 bg-blueGray-200 -mt-24">
         <div class="container mx-auto px-4">
-          <div class="flex flex-wrap">
+        <div class="flex flex-wrap">
             <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
               <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                 <div class="px-4 py-5 flex-auto">
@@ -150,11 +146,13 @@
                     @endauth
                 </div>
             @endif
-        </div>
-          </div>
+            </div>
 
-<footer class="relative  pb-6">
-</footer>
-      </section>
+        </div>
+        </div>
+
+    </section>
+
+    <x-footer />
 
 

@@ -9,7 +9,7 @@
         </a>
         <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
       </div>
-      <div class="flex-grow flex flex-row md:pr-20 -mb-10 md:text-left text-center order-first">
+      <div class="flex-grow flex flex-row md:pr-20 -mb-10 md:text-left text-left order-first">
         <div class="lg:w-1/4 md:w-1/2 w-full px-4">
           <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
           <nav class="list-none mb-10">
@@ -44,7 +44,7 @@
             </li>
           </nav>
         </div>
-        <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        {{-- <div class="lg:w-1/4 md:w-1/2 w-full px-4">
           <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
           <nav class="list-none mb-10">
             <li>
@@ -77,7 +77,7 @@
               <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
             </li>
           </nav>
-        </div>
+        </div> --}}
       </div>
     </div>
     <div class="bg-gray-100">

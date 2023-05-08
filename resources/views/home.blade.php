@@ -34,7 +34,7 @@
             </h1>
             <div class="flex flex-wrap -mx-4 mt-9">
                 @foreach ($hotels as $hotel)
-                    <x-hotel-card :hotel="$hotel" />
+                    <x-ad-card :hotel="$hotel" />
                 @endforeach
             </div>
 
@@ -43,7 +43,7 @@
             </h1>
             <div class="flex flex-wrap -mx-4 mt-9">
                 @foreach ($hotels as $hotel)
-                    @livewire('livewire-hotel-card', ['hotel' => $hotel])
+                    @livewire('livewire-ad-card', ['hotel' => $hotel])
                 @endforeach
             </div>
         </div>
@@ -78,7 +78,7 @@
                   Empower Lanka
                 </h1>
                 <p class="mt-4 text-lg text-blueGray-200">
-                  Empower Lanka is a one-stop-shop for entrepreneurs in Sri Lanka. We provide a platform for entrepreneurs to connect with each other and share their experiences. We also provide a platform for entrepreneurs to connect with investors and get funding for their business ideas.
+                  Empower Lanka is a one-stop-shop for entrepreneurs in Sri Lanka. We provide a platform for entrepreneurs to connect with each other and share their experiences.
                 </p>
               </div>
             </div>

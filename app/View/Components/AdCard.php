@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class HotelCard extends Component
+class AdCard extends Component
 {
     public $price;
 
@@ -26,6 +26,6 @@ class HotelCard extends Component
         // generate a random price
         $this->price = number_format(rand(100, 1000), 2);
 
-        return view('components.hotel-card');
+        return view('components.ad-card');
     }
 }

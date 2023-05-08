@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class LivewireHotelCard extends Component
+class LivewireAdCard extends Component
 {
 
     public $hotel;
@@ -28,6 +28,6 @@ class LivewireHotelCard extends Component
 
     public function render()
     {
-        return view('livewire.livewire-hotel-card');
+        return view('livewire.livewire-ad-card');
     }
 }

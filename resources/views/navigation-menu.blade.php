@@ -119,19 +119,19 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                @can('accessAdministration')
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ __('Administration') }}
-                                    </div>
-
-                                    <x-dropdown-link href="{{ route('admin.dashboard') }}">
-                                        {{ __('Dashboard') }}
-                                    </x-dropdown-link>
-                                @endcan
+                                {{-- @can('accessAdministration') --}}
+                                    {{-- <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ ucfirst(auth::user()->role->value) }}
+                                    </div> --}}
+                                {{-- @endcan --}}
 
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    {{ __('Manage Account') }}
+                                    {{ __('Manage ') . ucfirst(Auth::user()->role->value) . __(' Account') }}
                                 </div>
+
+                                <x-dropdown-link href="{{ route('dashboard') }}">
+                                    {{ __('Dashboard') }}
+                                </x-dropdown-link>
 
                                 <x-dropdown-link href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}

@@ -48,7 +48,7 @@ Route::prefix('admin')
         // check if the user has the admin role - Gate::check('accessAdministration')
 
         Route::get('dashboard', function () {
-            return view('admin.dashboard');
+            return view('dashboard');
         })->name('dashboard');
 
         Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
@@ -67,7 +67,7 @@ Route::prefix('admin')
     //     // check if the user has the admin role - Gate::check('accessAdministration')
 
     //     Route::get('dashboard', function () {
-    //         return view('admin.dashboard');
+    //         return view('dashboard');
     //     })->name('dashboard');
 
 

@@ -20,21 +20,33 @@
             <div class="mt-4">
                 <x-label for="email" value="{{ __('Email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"  autocomplete="email" />
+                @error('email')
+                <div class="text-red-600">{{ $message }}</div>
+            @enderror
             </div>
 
             <div class="mt-4">
                 <x-label for="phone" value="{{ __('Phone') }}" />
                 <x-input id="phone" class="block mt-1 w-full" type="text" name="phone" :value="old('phone')"  autocomplete="phone" />
+                @error('phone')
+                    <div class="text-red-600">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password"  autocomplete="new-password" />
+                @error('password')
+                    <div class="text-red-600">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mt-4">
                 <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation"  autocomplete="new-password" />
+                @error('password_confirmation')
+                <div class="text-red-600">{{ $message }}</div>
+            @enderror
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
@@ -51,6 +63,9 @@
                             </div>
                         </div>
                     </x-label>
+                    @error('terms')
+                    <div class="text-red-600">{{ $message }}</div>
+                @enderror
                 </div>
             @endif
 

@@ -12,6 +12,9 @@
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"  autofocus autocomplete="name" />
+                @error('name')
+                    <div class="text-red-600">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mt-4">

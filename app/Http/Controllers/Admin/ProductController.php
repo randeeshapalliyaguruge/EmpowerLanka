@@ -14,11 +14,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = (new Product())->newQuery();
 
-        $products = (new Product())->orderBy('id', 'DESC')->paginate(10);
+         if (auth()->user()->hasRole('user')) {
+            $products = $products->where('user_id', auth()->user()->id);
+         }
 
         return view('admin.product.index', [
-            'products' => $products
+            'products' => $products->orderBy('id', 'DESC')->paginate(10)
         ]);
     }
 
@@ -49,10 +52,16 @@ class ProductController extends Controller
             'description' => $validated['description'],
             'price' => $validated['price'],
             'image' => $validated['image'] ?? null,
-            'status' => $validated['status'] ?? false
+            'status' => $validated['status'] ?? false,
+            'user_id' => auth()->user()->id ?? null
         ]);
 
-        return redirect()->route('admin.product.index');
+        // check if the user has the role "admin" or user and redirect the users to the relevant pages
+        if (auth()->user()->hasRole('admin')) {
+            return redirect()->route('admin.product.index');
+        }else{
+            return redirect()->route('user.product.index');
+        }
     }
 
     /**
@@ -68,9 +77,14 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin.product.form', [
-            'product' => $product
-        ]);
+        if(auth()->user()->id == $product->user_id){
+            return view('admin.product.form', [
+                        'product' => $product
+                    ]);
+        }
+
+        throw new \Exception("You don't have permission to edit this product");
+
     }
 
     /**

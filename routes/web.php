@@ -17,11 +17,22 @@ use Illuminate\Support\Facades\Route;
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
+
+
+
     Route::get('/dashboard', function () {
+
+
+//  dd(auth()->user());
+
         return view('dashboard');
     })->name('dashboard');
+
+
+    Route::resource('product', \App\Http\Controllers\Admin\ProductController::class, ['as' => 'user']);
+
 });
 
 Route::prefix('admin')
@@ -42,6 +53,25 @@ Route::prefix('admin')
 
         Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
     });
+
+    // Route::prefix('profile')
+    // ->middleware([
+    //     // check if the user is logged in
+    //     'auth',
+    //     // check if the user has the role "admin"
+    //     'role:user'
+    // ])
+    // ->name('user.')
+    // ->group(function () {
+
+    //     // check if the user has the admin role - Gate::check('accessAdministration')
+
+    //     Route::get('dashboard', function () {
+    //         return view('admin.dashboard');
+    //     })->name('dashboard');
+
+
+    // });
 
 
 Route::get('/', \App\Http\Controllers\HomeController::class)

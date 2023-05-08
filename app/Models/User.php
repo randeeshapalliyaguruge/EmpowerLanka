@@ -64,6 +64,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'role' => \App\Enums\Role::class,
     ];
 
     /**
@@ -77,6 +78,6 @@ class User extends Authenticatable
 
     public function hasRole(string $role): bool
     {
-        return $this->role === $role;
+        return $this->role->value === $role;
     }
 }

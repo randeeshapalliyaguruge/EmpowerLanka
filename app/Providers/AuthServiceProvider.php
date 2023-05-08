@@ -25,11 +25,11 @@ class AuthServiceProvider extends ServiceProvider
     {
 
         Gate::define('accessAdministration', function (User $user) {
-            return $user->role === Role::Admin->value;
+            return $user->role->value === Role::Admin->value;
         });
 
         Gate::define('accessUserFeatures', function (User $user) {
-            return $user->role === Role::User->value;
+            return $user->role->value === Role::User->value;
         });
     }
 }

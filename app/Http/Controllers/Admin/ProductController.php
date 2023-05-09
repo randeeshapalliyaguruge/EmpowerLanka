@@ -83,7 +83,8 @@ class ProductController extends Controller
                     ]);
         }
 
-        throw new \Exception("You don't have permission to edit this product");
+        //throw new \Exception("You don't have permission to edit this product");
+        abort(403, "You don't have permission to edit this product .");
 
     }
 

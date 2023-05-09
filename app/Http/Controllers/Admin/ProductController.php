@@ -107,7 +107,12 @@ class ProductController extends Controller
             'status' => $validated['status'] ?? false
         ]);
 
-        return redirect()->route('admin.product.index');
+        // return redirect()->route('admin.product.index');
+        if (auth()->user()->hasRole('admin')) {
+            return redirect()->route('admin.product.index');
+        }else{
+            return redirect()->route('user.product.index');
+        }
     }
 
     /**

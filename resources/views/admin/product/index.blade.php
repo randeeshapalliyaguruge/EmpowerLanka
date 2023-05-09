@@ -8,9 +8,12 @@
             </div>
 
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                <a href="{{ route('admin.product.create') }}"
+
+                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.create') : route('user.product.create') }}"
                     class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Add Product</a>
+                    Add Product
+                 </a>
+
             </div>
 
         </div>
@@ -67,8 +70,9 @@
                                         </td>
                                         <td
                                             class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                            <a href="{{ route('admin.product.edit', $product->id) }}"
+                                            <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.edit', $product->id) : route('user.product.edit', $product->id) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
+
                                         </td>
                                     </tr>
                                 @endforeach

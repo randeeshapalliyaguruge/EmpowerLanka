@@ -11,7 +11,9 @@
             </div>
 
             <form method="post" enctype="multipart/form-data"
-                action="{{ $product->exists ? route('admin.product.update', $product) : route('admin.product.store') }}"
+                {{-- action="{{ $product->exists ? route('admin.product.update', $product) : route('admin.product.store') }}" --}}
+                action="{{ $product->exists ? (auth()->user()->hasRole('admin') ? route('admin.product.update', $product) : route('user.product.update', $product)) : (auth()->user()->hasRole('admin') ? route('admin.product.store') : route('user.product.store')) }}"
+
                 class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2">
                 @csrf
                 @if ($product->exists)
@@ -98,11 +100,13 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-end gap-x-6 border-t border-gray-900/10 px-4 py-4 sm:px-8">
-                    <a href="{{ route('admin.product.index') }}" class="text-sm font-semibold leading-6 text-gray-900">
+                    <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.index') : route('user.product.index') }}" class="text-sm font-semibold leading-6 text-gray-900">
                         Cancel
-                        </button>
+                    </a>
                         <button type="submit"
-                            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                            Save
+                        </button>
                 </div>
             </form>
         </div>

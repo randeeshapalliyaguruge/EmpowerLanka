@@ -57,7 +57,7 @@
                                             {{ Str::limit($product->description, 30) }}
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                            $ {{ $product->price }}
+                                            Rs. {{ $product->price }}
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             <img src="/storage/{{ $product->image }}" alt="{{ $product->title }}" width="100">

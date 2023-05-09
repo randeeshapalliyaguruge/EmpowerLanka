@@ -10,7 +10,7 @@
                         {{ $user->first_name . ' ' . $user->last_name }}
 
                     </h5>
-                    {{-- <span class="hidden text-gray-400 lg:block">Admin</span> --}}
+                    {{ucfirst(Auth::user()->role->value)}}
 
                 </div>
 
@@ -31,6 +31,7 @@
                     @endcan
 
                     @can('accessAdministration')
+
 
 
 

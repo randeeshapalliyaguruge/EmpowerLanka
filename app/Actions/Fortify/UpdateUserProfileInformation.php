@@ -23,12 +23,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
             'phone' => ['required', 'string', 'max:12', Rule::unique('users')->ignore($user->id)],
 
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'address' => [ 'string'],
-            'city' => [ 'string', 'max:255'],
-            'province' => [ 'string', 'max:255'],
-            'postal_code' => [ 'string', 'max:255'],
+            'first_name' => ['nullable', 'string', 'max:255'],
+            'last_name' => ['nullable', 'string', 'max:255'],
+            'address' => ['nullable', 'string'],
+            'city' => ['nullable', 'string', 'max:255'],
+            'province' => ['nullable', 'string', 'max:255'],
+            'postal_code' => ['nullable', 'string', 'max:255'],
 
         ])->validateWithBag('updateProfileInformation');
 

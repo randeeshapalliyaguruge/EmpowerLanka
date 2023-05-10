@@ -122,5 +122,12 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         // D - CRUD
+        $product->delete();
+
+        if (auth()->user()->hasRole('admin')) {
+            return redirect()->route('admin.product.index');
+        }else{
+            return redirect()->route('user.product.index');
+        }
     }
 }

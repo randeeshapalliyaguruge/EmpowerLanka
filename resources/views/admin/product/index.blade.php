@@ -72,6 +72,11 @@
                                             class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                             <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.edit', $product->id) : route('user.product.edit', $product->id) }}"
                                                 class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <x-danger-button type="submit" class="btn btn-danger">Delete</x-danger-button>
+                                                </form>
 
                                         </td>
                                     </tr>

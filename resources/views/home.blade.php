@@ -99,9 +99,9 @@
                   <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                     <i class="fas fa-award"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Topic 1</h6>
+                  <h6 class="text-xl font-semibold">Easy posting</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum officia facilis tempore aut iste in amet, ullam ipsa officiis vero! Quaerat quo nobis corrupti eligendi sed esse soluta alias sequi.
+                    Our platform offers an easy-to-use posting feature, allowing small-scale entrepreneurs to post their products or services for sale quickly and easily.
                   </p>
                 </div>
               </div>
@@ -113,9 +113,9 @@
                   <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                     <i class="fas fa-retweet"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Topic 2</h6>
+                  <h6 class="text-xl font-semibold">Featured listing</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates, sed. Ratione, officia nisi at cupiditate nemo atque voluptate vitae suscipit sit, blanditiis animi nostrum tempore voluptatem! Rerum incidunt sint eos.
+                    Our platform also offers a featured listing service that allows small-scale entrepreneurs to get more visibility and attract more customers to their products or services.
                   </p>
                 </div>
               </div>
@@ -127,9 +127,9 @@
                   <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                     <i class="fas fa-fingerprint"></i>
                   </div>
-                  <h6 class="text-xl font-semibold">Topic 3</h6>
+                  <h6 class="text-xl font-semibold">Feedback system</h6>
                   <p class="mt-2 mb-4 text-blueGray-500">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam totam adipisci molestiae quam. Dolore omnis dolorum rerum exercitationem a ipsa. Voluptatibus mollitia corrupti enim magnam aut fuga, itaque ipsam amet.
+                    We have a feedback system that allows customers to leave reviews and ratings for small-scale entrepreneurs, helping them build their reputation and attract more customers.
                   </p>
                 </div>
               </div>

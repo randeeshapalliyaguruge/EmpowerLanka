@@ -23,17 +23,14 @@
                                 width="24" height="24">
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
-                                    d="M15 2a4 4 0 0 1 3.464 6.001L23 8v2h-2v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10H1V8l4.536.001A4 4 0 0 1 12 3.355 3.983 3.983 0 0 1 15 2zm-4 8H5v9h6v-9zm8 0h-6v9h6v-9zM9 4a2 2 0 0 0-.15 3.995L9 8h2V6a2 2 0 0 0-1.697-1.977l-.154-.018L9 4zm6 0a2 2 0 0 0-1.995 1.85L13 6v2h2a2 2 0 0 0 1.995-1.85L17 6a2 2 0 0 0-2-2z" />
+                                    d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zm-2 3V4H4v15a1 1 0 0 0 1 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z" />
                             </svg>
-                            <span class="group-hover:text-gray-700">Products</span>
+                            <span class="group-hover:text-gray-700">Advertisements</span>
                         </a>
                     </li>
                     @endcan
 
                     @can('accessAdministration')
-
-
-
 
                     <li>
                         <a href="#" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
@@ -54,23 +51,12 @@
                                 width="24" height="24">
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
-                                    d="M15 2a4 4 0 0 1 3.464 6.001L23 8v2h-2v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10H1V8l4.536.001A4 4 0 0 1 12 3.355 3.983 3.983 0 0 1 15 2zm-4 8H5v9h6v-9zm8 0h-6v9h6v-9zM9 4a2 2 0 0 0-.15 3.995L9 8h2V6a2 2 0 0 0-1.697-1.977l-.154-.018L9 4zm6 0a2 2 0 0 0-1.995 1.85L13 6v2h2a2 2 0 0 0 1.995-1.85L17 6a2 2 0 0 0-2-2z" />
+                                    d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zm-2 3V4H4v15a1 1 0 0 0 1 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z" />
                             </svg>
-                            <span class="group-hover:text-gray-700">Products</span>
+                            <span class="group-hover:text-gray-700">Advertisements</span>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="#" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-                            <svg class="-ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                width="24" height="24">
-                                <path fill="none" d="M0 0h24v24H0z" />
-                                <path
-                                    d="M19 22H5a3 3 0 0 1-3-3V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12h4v4a3 3 0 0 1-3 3zm-1-5v2a1 1 0 0 0 2 0v-2h-2zm-2 3V4H4v15a1 1 0 0 0 1 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z" />
-                            </svg>
-                            <span class="group-hover:text-gray-700">Orders</span>
-                        </a>
-                    </li>
 
                     <li>
                         <a href="#" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
@@ -80,7 +66,7 @@
                                 <path
                                     d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.5-6H14a.5.5 0 1 0 0-1h-4a2.5 2.5 0 1 1 0-5h1V6h2v2h2.5v2H10a.5.5 0 1 0 0 1h4a2.5 2.5 0 1 1 0 5h-1v2h-2v-2H8.5v-2z" />
                             </svg>
-                            <span class="group-hover:text-gray-700">Promotions</span>
+                            <span class="group-hover:text-gray-700">Featured Ads</span>
                         </a>
                     </li>
 

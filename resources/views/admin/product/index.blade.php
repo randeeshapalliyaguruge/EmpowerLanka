@@ -3,15 +3,15 @@
     <div class="px-4 sm:px-6 lg:px-8">
         <div class="sm:flex sm:items-center">
             <div class="sm:flex-auto">
-                <h1 class="text-base font-semibold leading-6 text-gray-900">Products</h1>
-                <p class="mt-2 text-sm text-gray-700">A list of all the products in your system.</p>
+                <h1 class="text-base font-semibold leading-6 text-gray-900">Advertisement</h1>
+                <p class="mt-2 text-sm text-gray-700">A list of all the products and services in the system.</p>
             </div>
 
             <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
 
                 <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.create') : route('user.product.create') }}"
                     class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Add Product
+                    Post Your Ad
                  </a>
 
             </div>
@@ -50,8 +50,9 @@
                                     <tr>
                                         <td
                                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                                            {{ $product->id }}
+                                            {{ $product->id }} - {{ $product->user_id }}
                                         </td>
+                                        {{-- {{ ucfirst(Auth::user()->role->value) }} --}}
                                         <td
                                             class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                             {{ $product->title }}
@@ -63,7 +64,7 @@
                                             Rs. {{ $product->price }}
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                            <img src="/storage/{{ $product->image }}" alt="{{ $product->title }}" width="100">
+                                            <img src="/storage/{{ $product->image }}" alt="{{ "No Image" }}" width="100">
                                         </td>
                                         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                             {{ $product->status ? 'Active' : 'Inactive' }}
@@ -71,7 +72,8 @@
                                         <td
                                             class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                             <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.edit', $product->id) : route('user.product.edit', $product->id) }}"
-                                                class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                                class="inline-flex items-center mb-1 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Edit</a>
+
                                                 <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

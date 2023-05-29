@@ -77,13 +77,8 @@ Route::prefix('admin')
 Route::get('/', \App\Http\Controllers\HomeController::class)
     ->name('home');
 
-Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])
+Route::get('/products', \App\Http\Controllers\HomeController::class)
     ->name('product.index');
-
-Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class, 'show'])
-    ->name('product.show');
-
-
 
 Route::get('/promotions', \App\Http\Controllers\HomeController::class)
     ->name('promotions');

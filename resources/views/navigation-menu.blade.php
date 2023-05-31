@@ -24,7 +24,7 @@
                         {{ __('Promotions') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')">
+                    <x-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact')">
                         {{ __('Contact') }}
                     </x-nav-link>
                 </div>

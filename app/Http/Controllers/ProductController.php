@@ -7,15 +7,27 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    public function index(){
+    public function index(Request $request)
+{
+    // new product query
+    $products = (new Product())->newQuery();
+    $searchQuery = $request->query('q');
 
-        // new product query
-        $products = (new Product())->newQuery();
-
-            return view('product.index', [
-                'products' => $products->orderBy('id', 'DESC')->paginate(12)
-            ]);
+    // Apply search filter if a search query is present
+    if ($searchQuery) {
+        $products = $products->where(function ($query) use ($searchQuery) {
+            $query->where('title', 'like', '%' . $searchQuery . '%')
+                ->orWhere('description', 'like', '%' . $searchQuery . '%');
+        });
     }
+
+    $products = $products->orderBy('id', 'DESC')->paginate(12);
+
+    return view('product.index', [
+        'products' => $products,
+        'searchQuery' => $searchQuery,
+    ]);
+}
 
     public function show(Product $product){
 

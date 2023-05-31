@@ -29,7 +29,7 @@
             <div class="container mx-auto">
                 <div class="bg-white rounded-lg shadow-lg pl-20">
                     <h3 class="text-3xl font-semibold text-gray-800 pl-8 pt-9">{{ $product->title }}</h3>
-                    <p class="text-gray-600 text-lg mb-2 p-8">Posted: {{ $product->created_at }}</p>
+                    <p class="text-gray-600 text-lg mb-2 p-8">Posted: {{ $product->created_at }} , {{$product->user->city}}, {{$product->user->province}}</p>
                     <div class="flex flex-wrap pl-10">
                         <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 pl-8 pb-8">
                             <img src="/storage/{{ $product->image }}" alt="Advertisement Image" class="w-full h-auto rounded-lg">
@@ -37,12 +37,14 @@
                         <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 p-8">
                             <p class="text-gray-700">Seller Details: {{ $product->user->name }}</p>
                             <p class="text-gray-700">Phone Number: {{ $product->number }}</p>
+                            <p class="text-gray-700">Email: {{ $product->user->email }}</p>
+                            <p class="text-gray-700">Last Edited: {{ $product->updated_at }}</p>
                             <p class="text-gray-700">Status: {{ $product->status }}</p>
                         </div>
                     </div>
                     <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 pl-8 pb-10">
 
-                        <p class="text-gray-700 font-bold price-tag">Rs. {{ number_format($product->price, 0, ',', ',') }}</p><br>
+                        <p class="text-indigo-500 font-bold price-tag">Rs. {{ number_format($product->price, 0, ',', ',') }}</p><br>
                         <p class="text-gray-600 text-lg mb-4">{{ $product->description }}</p>
                     </div>
                 </div>

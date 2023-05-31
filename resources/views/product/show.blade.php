@@ -1,55 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-         <p>ID: {{ $product->id }}</p>
+<x-app-layout>
+
+        {{-- <p>ID: {{ $product->id }}</p>
         <p>Title: {{ $product->title }}</p>
         <p>Description: {{ $product->description }}</p>
         <p>Price: {{ $product->price }}</p>
         <p>Image: {{ $product->image }}</p>
         <p>Status: {{ $product->status }}</p>
-        <p>User ID: {{ $product->user_id }}</p>
+        <p>User ID: {{ $product->user_id }}</p> --}}
 
+        <!DOCTYPE html>
+        <html lang="en">
 
-        <div class="w-full md:w-1/2 xl:w-1/3 px-4">
-            <div class="bg-white rounded-lg overflow-hidden mb-10">
-                <img src="{{ $product->image }}" alt="image" class="w-full" />
-                <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
-                    <h3>
-                        <a href="javascript:void(0)"
-                            class=" font-semibold text-dark text-xl sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px] mb-4 block hover:text-primary">
-                            {{ $product->title }}
-                        </a>
-                    </h3>
-                    <p class="text-base text-body-color leading-relaxed mb-7">
-                        {{ $product->description }}
-                    </p>
-                    <a href="javascript:void(0)"
-                        class=" inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-primary hover:bg-primary hover:text-white transition">
-                        Rs. {{ $product->price }}/=
-                    </a>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <title>Advertisement</title>
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+            <style>
+                /* Custom Styles */
+                .price-tag {
+                    font-size: 1.5rem;
+                }
+            </style>
+        </head>
 
-                    <div class="block mt-4">
-                        <form action="/book-now" method="post" class="flex space-x-2">
-                            @csrf
-                            <input type="text" name="rooms" placeholder="rooms" required>
-                            <input type="hidden" name="hotel_id" value="{{ $product->id }}" />
-                            <button type="submit"
-                                class="inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-primary hover:bg-primary hover:text-black transition">
-                                Book Now
-                            </button>
-                        </form>
+        <body>
+            <div class="container mx-auto">
+                <div class="bg-white rounded-lg shadow-lg pl-20">
+                    <h3 class="text-3xl font-semibold text-gray-800 pl-8 pt-9">{{ $product->title }}</h3>
+                    <p class="text-gray-600 text-lg mb-2 p-8">Posted: {{ $product->created_at }}</p>
+                    <div class="flex flex-wrap pl-10">
+                        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 pl-8 pb-8">
+                            <img src="/storage/{{ $product->image }}" alt="Advertisement Image" class="w-full h-auto rounded-lg">
+                        </div>
+                        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 p-8">
+                            <p class="text-gray-700">Phone Number: {{ $product->phone_number }}</p>
+                            <p class="text-gray-700">Seller Details: {{ $product->user_id }}</p>
+                            <p class="text-gray-700">User ID: {{ $product->user_id }}</p>
+                            <p class="text-gray-700">Status: {{ $product->status }}</p>
+                        </div>
                     </div>
+                    <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 pl-8 pb-10">
 
+                        <p class="text-gray-700 font-bold price-tag">Rs. {{ number_format($product->price, 0, ',', ',') }}</p><br>
+                        <p class="text-gray-600 text-lg mb-4">{{ $product->description }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
 
+            <script src="https://cdn.tailwindcss.com/2.2.15/tailwind.min.js"></script>
+        </body>
 
-</body>
-</html>
+        </html>
+</x-app-layout>

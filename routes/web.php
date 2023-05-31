@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,12 +88,5 @@ Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class
 Route::get('/promotions', \App\Http\Controllers\HomeController::class)
     ->name('promotions');
 
-
-Route::get('/contact-us', [ContactController::class, 'contact'])
-        ->name('contact-us');
-
-Route::post('/send-email', [ContactController::class, 'sendEmail'])
-        ->name('send-email');
-
-
-
+Route::get('/contact', \App\Http\Controllers\HomeController::class)
+    ->name('contact');

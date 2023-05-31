@@ -13,13 +13,13 @@ class ProductController extends Controller
         $products = (new Product())->newQuery();
 
             return view('product.index', [
-                'products' => $products->orderBy('id', 'DESC')->paginate(10)
+                'products' => $products->orderBy('id', 'DESC')->paginate(12)
             ]);
     }
 
     public function show(Product $product){
 
-        dd($product);
+        //dd($product);
         return view('product.show', [
             'product' => $product
         ]);

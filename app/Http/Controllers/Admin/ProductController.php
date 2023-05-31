@@ -50,6 +50,7 @@ class ProductController extends Controller
         $product = (new Product())->create([
             'title' => $validated['title'],
             'description' => $validated['description'],
+            'number' => $validated['number'],
             'price' => $validated['price'],
             'image' => $validated['image'] ?? null,
             'status' => $validated['status'] ?? false,
@@ -103,6 +104,7 @@ class ProductController extends Controller
         $product->update([
             'title' => $validated['title'],
             'description' => $validated['description'],
+            'number' => $validated['number'],
             'price' => $validated['price'],
             'image' => $validated['image'] ?? $product->image,
             'status' => $validated['status'] ?? false

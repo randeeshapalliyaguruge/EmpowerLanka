@@ -80,4 +80,9 @@ class User extends Authenticatable
     {
         return $this->role->value === $role;
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

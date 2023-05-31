@@ -35,9 +35,8 @@
                             <img src="/storage/{{ $product->image }}" alt="Advertisement Image" class="w-full h-auto rounded-lg">
                         </div>
                         <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 p-8">
-                            <p class="text-gray-700">Phone Number: {{ $product->phone_number }}</p>
-                            <p class="text-gray-700">Seller Details: {{ $product->user_id }}</p>
-                            <p class="text-gray-700">User ID: {{ $product->user_id }}</p>
+                            <p class="text-gray-700">Seller Details: {{ $product->user->name }}</p>
+                            <p class="text-gray-700">Phone Number: {{ $product->number }}</p>
                             <p class="text-gray-700">Status: {{ $product->status }}</p>
                         </div>
                     </div>

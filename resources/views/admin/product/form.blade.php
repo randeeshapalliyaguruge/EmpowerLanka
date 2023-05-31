@@ -54,6 +54,19 @@
                             @enderror
                         </div>
 
+                        <div class="col-span-full">
+                            <label for="number" class="block text-sm font-medium leading-6 text-gray-900">Phone Number</label>
+                            <div class="mt-2">
+                                <input type="text" name="number" id="number"
+                                    value="{{ old('number', $product->number) }}"
+                                    class="block w-1/2 rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:py-1.5 sm:text-sm sm:leading-6"
+                                    placeholder="Phone Number">
+                            </div>
+                            @error('number')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="sm:col-span-4">
                             <label for="price" class="block text-sm font-medium leading-6 text-gray-900">
                                 Price

@@ -22,6 +22,8 @@ return new class extends Migration
 
             $table->longText('description')->nullable();
 
+            $table->string('number')->nullable();
+
             $table->decimal('price', 8, 2);
 
             $table->string('image')->nullable();

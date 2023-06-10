@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +56,9 @@ Route::prefix('admin')
         })->name('dashboard');
 
         Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+
+        Route::get('user', [AdminUserController::class, 'index'])
+            ->name('user.index');
     });
 
     // Route::prefix('profile')
@@ -74,10 +80,6 @@ Route::prefix('admin')
 
     // });
 
-
-Route::get('/', \App\Http\Controllers\HomeController::class)
-    ->name('home');
-
 Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'])
     ->name('product.index');
 
@@ -93,3 +95,6 @@ Route::get('/contact-us', [ContactController::class, 'contact'])
 
 Route::post('/send-email', [ContactController::class, 'sendEmail'])
     ->name('send-email');
+
+Route::get('/', \App\Http\Controllers\HomeController::class)
+->name('home');

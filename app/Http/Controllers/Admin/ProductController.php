@@ -21,7 +21,7 @@ class ProductController extends Controller
          }
 
         return view('admin.product.index', [
-            'products' => $products->orderBy('id', 'DESC')->paginate(10)
+            'products' => $products->orderBy('id', 'DESC')->paginate(5)
         ]);
     }
 

@@ -15,25 +15,25 @@
 
                         <x-table class="mx-auto sm:px-6 lg:px-8 flex justify-center">
                             <x-slot name="head">
-                                <x-th class="w-[300px]">User Name</x-th>
-                                <x-th class="w-[300px]">First Name</x-th>
-                                <x-th class="w-[300px]">Last Name</x-th>
-                                <x-th class="w-[300px]">Email</x-th>
-                                <x-th class="w-[300px]">Phone</x-th>
-                                <x-th class="w-[300px]">Address</x-th>
-                                <x-th class="w-[300px]">Registered Date</x-th>
+                                <x-th>User Name</x-th>
+                                <x-th>First Name</x-th>
+                                <x-th>Last Name</x-th>
+                                <x-th>Email</x-th>
+                                <x-th>Phone</x-th>
+                                <x-th>Address</x-th>
+                                <x-th>Registered Date</x-th>
                             </x-slot>
                             <x-slot name="body">
 
                                 @foreach ($users as $user)
                                     <x-tr>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 w-[300px] text-left">{{ $user->name }}</x-td>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 border w-[300px] text-left">{{ $user->first_name }}</x-td>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 border w-[300px] text-left">{{ $user->last_name }}</x-td>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 border w-[300px] text-left">{{ $user->email }}</x-td>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 border w-[300px] text-left">{{ $user->phone }}</x-td>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 border w-[300px] text-left">{{ $user->address }}</x-td>
-                                        <x-td class=" py-4 px-6 text-sm text-gray-600 border w-[300px] text-left">{{ $user->created_at->format('d/m/Y h:ia') }}</x-td>
+                                        <x-td>{{ $user->name }}</x-td>
+                                        <x-td>{{ $user->first_name }}</x-td>
+                                        <x-td>{{ $user->last_name }}</x-td>
+                                        <x-td>{{ $user->email }}</x-td>
+                                        <x-td>{{ $user->phone }}</x-td>
+                                        <x-td>{{ $user->address }}</x-td>
+                                        <x-td>{{ $user->created_at->format('d/m/Y h:ia') }}</x-td>
                                     </x-tr>
                                 @endforeach
                             </x-slot>
@@ -41,7 +41,9 @@
 
                     </div>
                 </div>
-                {{ $users->links() }}
+                <div class="p-4">
+                    {{ $users->links() }}
+                </div>
             </div>
         </div>
     </div>

@@ -28,4 +28,9 @@ class Product extends Model
     {
         return $this->hasMany(\App\Models\Review::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', true);
+    }
 }

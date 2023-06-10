@@ -9,6 +9,8 @@ class ProductController extends Controller
 {
     public function index(Request $request)
 {
+    $product = Product::active()->get();
+
     // new product query
     $products = (new Product())->newQuery();
     $searchQuery = $request->query('q');

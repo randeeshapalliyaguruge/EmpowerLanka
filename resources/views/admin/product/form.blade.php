@@ -102,12 +102,31 @@
                                 Status
                             </label>
                             <div class="mt-2">
-                                <div
-                                    class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                                    <input type="checkbox" name="status" id="status"
-                                        {{ old('status', $product->status) ? 'checked' : '' }}
-                                        class="block flex-1 border-0 bg-transparent py-1.5 px-2  text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6">
-                                </div>
+                                <div>
+                                    <label for="status" class="flex items-center cursor-pointer">
+                                      <div class="relative">
+                                        <input type="checkbox" name="status" id="status" {{ old('status', $product->status) ? 'checked' : '' }} class="sr-only peer" />
+                                        <div class="block w-10 h-6 bg-gray-200 rounded-full"></div>
+                                        <div class="dot absolute left-1 top-1 bg-gray-700 w-4 h-4 rounded-full transition-transform duration-300 ease-in-out transform peer-checked:translate-x-4"></div>
+                                      </div>
+                                      <span id="toggle-status" class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-600">{{ $product->status ? 'Active' : 'Inactive' }}</span>
+                                    </label>
+                                  </div>
+
+                                  <script>
+                                    const toggleCheckbox = document.getElementById('status');
+                                    const toggleStatus = document.getElementById('toggle-status');
+
+                                    toggleCheckbox.addEventListener('change', function () {
+                                      if (this.checked) {
+                                        toggleStatus.textContent = 'Active';
+                                      } else {
+                                        toggleStatus.textContent = 'Inactive';
+                                      }
+                                    });
+                                  </script>
+
+
                             </div>
                         </div>
                     </div>

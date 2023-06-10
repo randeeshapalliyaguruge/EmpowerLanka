@@ -119,19 +119,30 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                {{-- @can('accessAdministration') --}}
-                                    <div class="block px-4 py-2 text-xs text-gray-400">
-                                        {{ ucfirst(auth::user()->role->value) }}
-                                    </div>
-                                {{-- @endcan --}}
-
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('Manage ') . ucfirst(Auth::user()->role->value) . __(' Account') }}
                                 </div>
+                                @can('accessAdministration')
+                                    {{-- <div class="block px-4 py-2 text-xs text-gray-400">
+                                        {{ ucfirst(auth::user()->role->value) }}
+                                    </div> --}}
 
-                                <x-dropdown-link href="{{ route('dashboard') }}">
-                                    {{ __('Dashboard') }}
-                                </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.user.index') }}">
+                                        {{ __('User') }}
+                                    </x-dropdown-link>
+
+                                    <x-dropdown-link href="{{ route('admin.product.index') }}">
+                                        {{ __('Ads') }}
+                                    </x-dropdown-link>
+                                    <div class="border-t border-gray-200"></div>
+                                @endcan
+
+                                @can('accessUserFeatures')
+
+                                    <x-dropdown-link href="{{ route('user.product.index') }}">
+                                        {{ __('Ads') }}
+                                    </x-dropdown-link>
+                                @endcan
 
                                 <x-dropdown-link href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}

@@ -2,6 +2,7 @@
 <div class="flex flex-wrap -mx-4 mt-9 px-10">
     {{-- <div class="flex flex-wrap -mx-4 mt-9 px-10"item col-xs-1> --}}
     @foreach ($products as $product)
+    @if($product->status)
         {{-- <p>ID: {{ $product->id }}</p>
         <p>Title: {{ $product->title }}</p>
         <p>Description: {{ $product->description }}</p>
@@ -38,7 +39,7 @@
         </div>
     </div>
 
-
+@endif
     @endforeach
 </div>
 {{ $products->links() }}

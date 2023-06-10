@@ -48,7 +48,19 @@
                                         <x-td>{{ $product->user->name }} - {{ $product->user_id }} </x-td>
                                         @endcan
                                         <x-td><img src="/storage/{{ $product->image }}" alt="{{ "No Image" }}" width="100"></x-td>
-                                        <x-td>{{ $product->status ? 'Active' : 'Inactive' }}</x-td>
+                                        {{-- <x-td>{{ $product->status ? 'Active' : 'Inactive' }}</x-td> --}}
+                                        <x-td>
+                                            @if ($product->status)
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                    Active
+                                                </span>
+                                            @else
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                                    Inactive
+                                                </span>
+                                            @endif
+                                        </x-td>
+
                                         <x-td>{{ $product->view_count }}</x-td>
                                         <x-td>{{ $product->created_at->format('d M Y') }}</x-td>
                                         <x-td>

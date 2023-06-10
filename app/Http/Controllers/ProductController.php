@@ -32,6 +32,7 @@ class ProductController extends Controller
     public function show(Product $product){
 
         //dd($product);
+        $product->increment('view_count');
         return view('product.show', [
             'product' => $product
         ]);

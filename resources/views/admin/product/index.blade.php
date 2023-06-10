@@ -23,32 +23,35 @@
                     <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
                         <x-table class="mx-auto sm:px-6 lg:px-8 flex justify-center">
                             <x-slot name="head">
-                                @can('accessAdministration')
-                                <x-th>Publisher</x-th>
-                                @endcan
+                                <x-th>Ad ID</x-th>
                                 <x-th>Title</x-th>
-                                <x-th>Description</x-th>
-                                <x-th>Price</x-th>
+                                @can('accessAdministration')
+                                <x-th>Publisher - ID</x-th>
+                                @endcan
                                 <x-th>Image</x-th>
                                 <x-th>Status</x-th>
+                                <x-th>Views</x-th>
+                                <x-th>Created Date</x-th>
                                 <x-th>Actions</x-th>
                             </x-slot>
                             <x-slot name="body">
                                 @foreach ($products as $product)
                                     <x-tr>
-                                        @can('accessAdministration')
-                                        <x-td>{{ $product->user->name }} - {{ $product->user_id }} </x-td>
-                                        @endcan
+
+                                        <x-td>{{ ($product->id) }}</x-td>
                                         <x-td>
                                             <a href="{{ route('product.show', $product->id) }}" class="text-indigo-500 hover:underline">
                                                 {{ $product->title }}
                                             </a>
                                         </x-td>
-                                        <x-td>{{ Str::limit($product->description, 30) }}</x-td>
-                                        <x-td>Rs. {{ number_format($product->price, 0, ',', ',') }}</x-td>
+                                        @can('accessAdministration')
+                                        <x-td>{{ $product->user->name }} - {{ $product->user_id }} </x-td>
+                                        @endcan
                                         <x-td><img src="/storage/{{ $product->image }}" alt="{{ "No Image" }}" width="100"></x-td>
                                         <x-td>{{ $product->status ? 'Active' : 'Inactive' }}</x-td>
-                                        <x-td >
+                                        <x-td>{{ $product->view_count }}</x-td>
+                                        <x-td>{{ $product->created_at->format('d M Y') }}</x-td>
+                                        <x-td>
                                             @if (auth()->user()->id === $product->user_id)
                                                 <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.edit', $product->id) : route('user.product.edit', $product->id) }}">
                                                     <x-table-action-button>Edit</x-table-action-button>

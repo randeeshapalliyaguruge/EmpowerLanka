@@ -30,6 +30,9 @@ return new class extends Migration
 
             $table->boolean('status')->default(true);
 
+            $table->unsignedInteger('view_count')->default(0);
+            $table->unsignedInteger('subscription_count')->default(0);
+
             $table->timestamps();
         });
     }

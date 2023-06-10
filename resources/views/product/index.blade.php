@@ -1,46 +1,61 @@
 <x-app-layout>
-<div class="flex flex-wrap -mx-4 mt-9 px-10">
-    {{-- <div class="flex flex-wrap -mx-4 mt-9 px-10"item col-xs-1> --}}
-    @foreach ($products as $product)
-    @if($product->status)
-        {{-- <p>ID: {{ $product->id }}</p>
-        <p>Title: {{ $product->title }}</p>
-        <p>Description: {{ $product->description }}</p>
-        <p>Price: {{ $product->price }}</p>
-        <p>Image: {{ $product->image }}</p>
-        <p>Status: {{ $product->status }}</p>
-        <p>User ID: {{ $product->user_id }}</p>
-        <p>...................................................</p>--}}
-    {{-- <x-card-view :product="$products" /> --}}
+    <div class="py-8">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex justify-between mb-6">
 
+            <div class="w-1/3 px-4">
+                <select class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="">All Categories</option>
+                    <option value="category1">Category 1</option>
+                    <option value="category2">Category 2</option>
+                    <option value="category3">Category 3</option>
+                    <!-- Add more categories as needed -->
+                </select>
+            </div>
 
-    <div class="w-full md:w-1/2 xl:w-1/3 px-4 mg-20">
-        <div class="bg-white rounded-lg overflow-hidden mb-10  ">
-            {{-- <img src="/storage/{{ $product->image }}" alt='{{ $product->titles }}' class="w-full h-60" /> --}}
-            <img src="{{ $product->image ? '/storage/' . $product->image : 'https://placehold.co/600x400' }}" alt="{{ $product->title }}" class="w-full h-60" onerror="this.src='https://placehold.co/600x400'" />
+            <div class="w-1/3 px-4">
+                <input type="text" placeholder="Search" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-primary focus:border-primary" />
+            </div>
 
-
-            <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
-                <h3>
-                    <a href="{{ route('product.show', $product->id) }}"
-                        class=" font-semibold text-dark text-xl sm:text-[22px] md:text-xl lg:text-[22px] xl:text-xl 2xl:text-[22px] mb-4 block hover:text-primary">
-                        {{ $product->title }}
-                    </a>
-                </h3>
-                <p class="text-base text-body-color leading-relaxed mb-7">
-                    {{ Str::limit($product->description, 50) }}
-                </p>
-                <a href="javascript:void(0)"
-                    class=" inline-block py-2 px-7 border border-[#E5E7EB] rounded-full text-base text-body-color font-medium hover:border-primary hover:bg-primary hover:text-white transition">
-                    Rs. {{ number_format($product->price, 0, '.', ',') }}/=
-                </a>
-
+            <div class="w-1/3 px-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Apply</button>
             </div>
         </div>
+
+        <div class="grid grid-cols-3 gap-2">
+            @foreach ($products as $product)
+                @if ($product->status)
+                <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+                    <div class="h-48 overflow-hidden">
+                        <img src="{{ $product->image ? '/storage/' . $product->image : 'https://placehold.co/600x400' }}" alt="{{ $product->title }}" class="rounded-t-lg object-cover w-full h-full" onerror="this.src='https://placehold.co/600x400'" />
+                    </div>
+                    <div class="p-5">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{{ $product->title }}</h5>
+                        <p class="text-base text-gray-500 leading-relaxed mb-4">{{ Str::limit($product->description, 50) }}</p>
+                        <div class="flex items-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mr-1 flex-shrink-0">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                <line x1="16" y1="2" x2="16" y2="6" />
+                                <line x1="8" y1="2" x2="8" y2="6" />
+                                <line x1="3" y1="10" x2="21" y2="10" />
+                            </svg>
+                            <span class="text-sm text-gray-500">Price: <span class="font-medium">Rs. {{ number_format($product->price, 0, '.', ',') }}/</span></span>
+                        </div>
+                        <div class="flex justify-center">
+                            <a href="{{ route('product.show', $product->id) }}" class="inline-flex items-center px-6 py-2 mt-4 text-sm font-bold text-center text-white bg-blue-600 rounded-lg hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300">
+                                View Ad
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endif
+            @endforeach
+        </div>
+        <div class="p-4">
+            {{ $products->links() }}
+        </div>
+
     </div>
 
-@endif
-    @endforeach
-</div>
-{{ $products->links() }}
+    </div>
 </x-app-layout>

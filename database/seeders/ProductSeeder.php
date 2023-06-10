@@ -13,6 +13,13 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::factory()->count(5000)->create();
+        Product::factory()->count(100)->create();
+
+        foreach ($products as $product) {
+            $product['category_id'] = rand();
+
+            \App\Models\Product::create($product);
+        }
     }
+
 }

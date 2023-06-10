@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,10 @@ Route::prefix('admin')
         })->name('dashboard');
 
         Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+
+        Route::resource('/category', AdminCategoryController::class)->only([
+            'index', 'create', 'edit', 'destroy'
+        ]);
 
         Route::get('user', [AdminUserController::class, 'index'])
             ->name('user.index');

@@ -8,26 +8,8 @@
         <p>Status: {{ $product->status }}</p>
         <p>User ID: {{ $product->user_id }}</p> --}}
 
-        <!DOCTYPE html>
-        <html lang="en">
-
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <title>Advertisement</title>
-            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
-            <style>
-                /* Custom Styles */
-                .price-tag {
-                    font-size: 1.5rem;
-                }
-            </style>
-        </head>
-
-        <body>
             <div class="container mx-auto">
-                <div class="bg-white rounded-lg shadow-lg pl-20">
+                <div class="bg-white rounded-lg shadow-lg pl-20 my-3">
                     <h3 class="text-3xl font-semibold text-gray-800 pl-8 pt-9">{{ $product->title }}</h3>
                     <p class="text-gray-600 text-lg mb-2 p-8">Posted: {{ $product->created_at }} , {{$product->user->city}}, {{$product->user->province}}</p>
                     <div class="flex flex-wrap pl-10">
@@ -48,10 +30,36 @@
                         <p class="text-gray-600 text-lg mb-4">{{ $product->description }}</p>
                     </div>
                 </div>
+
+                                {{-- Reviews Section --}}
+                    <div class="bg-white rounded-lg shadow-lg pl-20">
+                        <div class="px-4 pt-6">
+
+                                {{-- Display reviews --}}
+                            @livewire('ad-reviews', [
+                                'product' => $product
+                                ])
+
+                                {{-- Post a comment --}}
+                                @auth
+                            @livewire('create-ad-review', [
+                                'product' => $product
+                                ])
+                                @endauth
+
+                                @guest
+                                <div class="my-6">
+                                       <a href="{{ route('login') }}"
+                                        class="inline-flex items-center justify-center px-4 py-2 mb-3 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700">
+                                        Login to leave a review
+                                    </a>
+                                </div>
+                                @endguest
+                        </div>
+                    </div>
+
             </div>
 
             <script src="https://cdn.tailwindcss.com/2.2.15/tailwind.min.js"></script>
-        </body>
 
-        </html>
 </x-app-layout>

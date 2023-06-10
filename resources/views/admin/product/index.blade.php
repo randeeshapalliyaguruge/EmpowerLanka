@@ -23,7 +23,9 @@
                     <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
                         <x-table class="mx-auto sm:px-6 lg:px-8 flex justify-center">
                             <x-slot name="head">
+                                @can('accessAdministration')
                                 <x-th>Publisher</x-th>
+                                @endcan
                                 <x-th>Title</x-th>
                                 <x-th>Description</x-th>
                                 <x-th>Price</x-th>
@@ -34,18 +36,22 @@
                             <x-slot name="body">
                                 @foreach ($products as $product)
                                     <x-tr>
+                                        @can('accessAdministration')
                                         <x-td>{{ $product->user->name }} - {{ $product->user_id }} </x-td>
-                                        <x-td>{{ $product->title }}</x-td>
+                                        @endcan
+                                        <x-td>
+                                            <a href="{{ route('product.show', $product->id) }}" class="text-indigo-500 hover:underline">
+                                                {{ $product->title }}
+                                            </a>
+                                        </x-td>
                                         <x-td>{{ Str::limit($product->description, 30) }}</x-td>
                                         <x-td>Rs. {{ number_format($product->price, 0, ',', ',') }}</x-td>
                                         <x-td><img src="/storage/{{ $product->image }}" alt="{{ "No Image" }}" width="100"></x-td>
                                         <x-td>{{ $product->status ? 'Active' : 'Inactive' }}</x-td>
                                         <x-td >
-
                                             @if (auth()->user()->id === $product->user_id)
-                                                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.edit', $product->id) : route('user.product.edit', $product->id) }}"
-                                                    class="inline-flex items-center mb-1 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                                                    Edit
+                                                <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.edit', $product->id) : route('user.product.edit', $product->id) }}">
+                                                    <x-table-action-button>Edit</x-table-action-button>
                                                 </a>
                                             @endif
 
@@ -53,9 +59,8 @@
                                                 onsubmit="return confirm('Are you sure you want to delete this product?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <x-danger-button type="submit" class="btn btn-danger">Delete</x-danger-button>
+                                                <x-table-action-red-button>Delete</x-table-action-red-button>
                                             </form>
-
                                         </x-td>
                                     </x-tr>
                                 @endforeach

@@ -139,7 +139,184 @@
         </div>
 
     </section>
+    <!-- component -->
 
+<style>
+    .bg-deepblue {
+      background-color: #00008B;
+    }
+    .bg-softgreen {
+      background-color: #4bf14b;
+    }
+    .bg-warmorange  {
+      background-color: #FFB74D;
+    }
+
+    .text-deepblue {
+    fill: #00008B;
+  }
+  .text-softgreen {
+    fill: #4bf14b;
+  }
+
+  .text-warmorange {
+    fill: #FFB74D;
+  }
+  </style>
+
+
+<section class="bg-blueGray-200 -mt-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap">
+        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-1 shadow-lg rounded-lg">
+            <div class="px-4 flex-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center mt-16">
+        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+          <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+              <i class="fas fa-question text-xl"></i>
+            </div>
+
+          <h3 class="text-3xl mb-2 font-semibold leading-normal">
+              Are you an ambitious entrepreneur looking to take your business to new heights?
+          </h3>
+          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+              Look no further! Empower Lanka is your ultimate destination for
+              discovering top-quality products and services designed to accelerate your entrepreneurial journey.
+          </p>
+          <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
+              We are dedicated to supporting you every step of the way, from ideation to execution,
+              to help you achieve your business goals.
+          </p>
+        </div>
+        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg bg-deepblue">
+              <img alt="..." src="https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-05/online%20shopping.jpg">
+              <blockquote class="relative p-8 mb-4">
+                <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="absolute left-0 w-full block h-95-px -top-94-px">
+                  <polygon points="-30,95 583,95 583,65" class="text-deepblue fill-current"></polygon>
+                </svg>
+
+                <h4 class="text-xl font-bold text-white">
+                    Secure and Convenient Shopping
+                </h4>
+                <p class="text-md font-light mt-2 text-white">
+                    Enjoy a seamless experience with our secure and user-friendly platform. Browse our products and services with ease,
+                    read reviews from fellow entrepreneurs, and make confident purchasing decisions. We prioritize your
+                    data security and privacy, ensuring a worry-free transaction every time.
+                </p>
+              </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<br><br>
+<section class=" bg-blueGray-200 -mt-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap">
+        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-1 shadow-lg rounded-lg">
+            <div class="px-4 flex-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center mt-16">
+        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+            <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg bg-warmorange">
+                <img alt="..." src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1051&amp;q=80" class="w-full align-middle rounded-t-lg">
+                <blockquote class="relative p-8 mb-4">
+              <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="absolute left-0 w-full block h-95-px -top-94-px">
+                        <polygon points="-30,95 583,95 583,65" class="text-warmorange fill-current"></polygon>
+                      </svg>
+
+                <h4 class="text-xl font-bold text-white">
+                    Entrepreneurial Community
+                </h4>
+                <p class="text-md font-light mt-2 text-white">
+                    Networking within the entrepreneurial community offers numerous advantages for individuals seeking to grow their
+                    ventures or explore new opportunities. By connecting with like-minded individuals,
+                    entrepreneurs gain access to a wealth of insights, experiences, and potential partnerships that can
+                    propel their businesses forward.
+                </p>
+              </blockquote>
+            </div>
+          </div>
+        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+          <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+            <i class="fas fa-user-friends text-xl"></i>
+          </div>
+          <h3 class="text-3xl mb-2 font-semibold leading-normal">
+            Diverse Product Range
+          </h3>
+          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+            Connect with like-minded individuals in our vibrant entrepreneurial community. Share insights,
+            collaborate on projects, and foster valuable partnerships.
+          </p>
+          <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
+            Networking opportunities abound, allowing you to tap into a vast pool of knowledge, experience, and support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br><br>
+  <section class=" bg-blueGray-200 -mt-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap">
+        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-1 shadow-lg rounded-lg">
+            <div class="px-4 flex-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap items-center mt-16">
+        <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+            <div class="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                <i class="fas fa-cube text-xl"></i>
+              </div>
+          <h3 class="text-3xl mb-2 font-semibold leading-normal">
+            Diverse Product Range
+          </h3>
+          <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
+            Explore our extensive collection of cutting-edge products handpicked to meet the needs of modern entrepreneurs.
+            From innovative tech gadgets to productivity tools and business essentials, we've got you covered.
+          </p>
+          <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
+            Discover game-changing solutions that will revolutionize the way you work and grow your business.
+          </p>
+          <a href="../index.html" class="font-bold text-blueGray-700 mt-8">Check Notus JS!</a>
+        </div>
+        <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+          <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg bg-softgreen">
+              <img alt="..." src="https://th.bing.com/th/id/R.6ad95b40cd17a09e8a66ceb81905cb0d?rik=x7LV4NH6yb%2fY9A&riu=http%3a%2f%2fwww.asalesguy.com%2fwp-content%2fuploads%2f2016%2f09%2fproduct-vs-service_image.jpg&ehk=Xnasdi%2bsy185%2bn5xAP4%2fR1dcce7RGU%2bIbETKoGbuiyM%3d&risl=&pid=ImgRaw&r=0">
+              <blockquote class="relative p-8 mb-4">
+            <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="absolute left-0 w-full block h-95-px -top-94-px">
+                      <polygon points="-30,95 583,95 583,65" class="text-softgreen fill-current"></polygon>
+                    </svg>
+
+              <h4 class="text-xl font-bold text-white">
+                Innovative Products & Services
+              </h4>
+              <p class="text-md font-light mt-2 text-white">
+                In today's rapidly evolving business landscape, having access to a diverse range of cutting-edge products can make a
+                significant difference in an entrepreneur's success. These innovative tools and solutions have the potential to
+                revolutionize the way entrepreneurs work, streamline processes, and boost productivity.
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </section>
 
 
     <x-footer />

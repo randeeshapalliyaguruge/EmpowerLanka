@@ -1,12 +1,21 @@
 <!-- component -->
 <x-app-layout>
     <div class="flex justify-center mt-4">
-        <div class="w-full max-w-lg">
-            @if (Session::has('message_sent'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 mb-4 rounded relative" role="alert">
+        @if (Session::has('message_sent'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 mb-2 rounded relative" role="alert">
                     <span class="block sm:inline">{{ Session::get('message_sent') }}</span>
                 </div>
             @endif
+    </div>
+    <div class="flex justify-center m-2 ">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Contact Us
+        </h2>
+    </div>
+
+    <div class="flex justify-center mt-6">
+        <div class="w-full max-w-lg">
+
 
             <form method="POST" action="{{ route('send-email') }}" enctype="multipart/form-data">
                 @csrf

@@ -3,9 +3,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-between mb-6">
 
-            <div class="w-1/3 px-4">
-                <select class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-primary focus:border-primary">
-                    <option value="">All Categories</option>
+        <form action="{{ route('product.index') }}" method="GET" class="grid grid-cols-3 gap-2">
+
+            <div class="px-4">
+                <select name="category" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value=""></option>
                     <option value="category1">Category 1</option>
                     <option value="category2">Category 2</option>
                     <option value="category3">Category 3</option>
@@ -13,13 +15,16 @@
                 </select>
             </div>
 
-            <div class="w-1/3 px-4">
-                <input type="text" placeholder="Search" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-primary focus:border-primary" />
+            <div class=" px-4">
+                <input type="text" name="q" placeholder="Search" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-primary focus:border-primary" />
             </div>
 
-            <div class="w-1/3 px-4">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Apply</button>
+
+            <div class=" px-4">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Apply</button>
             </div>
+
+        </form>
         </div>
 
         <div class="grid grid-cols-3 gap-2">

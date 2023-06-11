@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Review;
 
 class CreateAdReview extends Component
 {
@@ -21,6 +22,16 @@ class CreateAdReview extends Component
     public function mount($product)
     {
         $this->product = $product;
+    }
+
+    public function deleteReview($reviewId)
+    {
+        $review = \App\Models\Review::find($reviewId);
+
+        if ($review && $review->user_id === auth()->user()->id) {
+            $review->delete();
+            $this->emit('reviewDeleted');
+        }
     }
 
     public function save()

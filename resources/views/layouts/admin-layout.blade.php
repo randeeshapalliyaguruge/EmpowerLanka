@@ -70,7 +70,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    {{-- <li>
                         <a href="#" class="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
 
                             <svg class="-ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -82,7 +82,7 @@
 
                             <span class="group-hover:text-gray-700">Reviews</span>
                         </a>
-                    </li>
+                    </li> --}}
                     @endcan
                 </ul>
 
@@ -141,7 +141,7 @@
                                 </path>
                             </svg>
                         </button>
-                        <button aria-label="chat"
+                        {{-- <button aria-label="chat"
                             class="w-10 h-10 rounded-xl border bg-gray-100 focus:bg-gray-100 active:bg-gray-200">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 m-auto text-gray-600"
                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -156,7 +156,7 @@
                                 <path
                                     d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                             </svg>
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
             </div>
@@ -165,4 +165,32 @@
             </div>
         </div>
     </div>
+    <style>
+        .shadow-effect {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* CSS for the shadow effect */
+        /* a:active,
+        a:focus {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        } */
+
+    </style>
+
+    <script>
+    // get the current url
+    var url = window.location.href;
+    // get the anchor tag
+    var aTag = document.querySelectorAll('a');
+    // loop through the anchor tag
+    for (var i = 0; i < aTag.length; i++) {
+        // check if the anchor tag href is equal to the current url
+        if (aTag[i].href == url) {
+            // add the shadow effect
+            aTag[i].classList.add('shadow-effect');
+        }
+    }
+    </script>
+
 </x-app-layout>

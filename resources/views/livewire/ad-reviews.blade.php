@@ -42,7 +42,13 @@
                             class="ml-4 border-l border-gray-200 pl-4 text-gray-500 lg:ml-0 lg:mt-2 lg:border-0 lg:pl-0">
                             {{ $review->created_at->format('M d, Y') }}
                         </time>
+
+                    <div>
+                        @if (auth()->id() === $review->user_id)
+                        <button wire:click="deleteReview({{ $review->id }})" class="font-bold text-red-500 hover:underline mt-3">Delete Review</button>
+                        @endif
                     </div>
+                </div>
                 </div>
             @endforeach
 

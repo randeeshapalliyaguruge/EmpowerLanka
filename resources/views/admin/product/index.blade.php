@@ -73,11 +73,16 @@
                                                 </a>
                                             @endif
 
-                                            <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST"
+                                            {{-- <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST"
                                                 onsubmit="return confirm('Are you sure you want to delete this product?');">
                                                 @csrf
                                                 @method('DELETE')
                                                 <x-table-action-red-button>Delete</x-table-action-red-button>
+                                            </form> --}}
+                                            <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" onclick="showConfirmation(event)" class="font-medium text-red-600 hover:underline">Delete</button>
                                             </form>
                                         </x-td>
                                     </x-tr>
@@ -93,4 +98,28 @@
         </div>
 
     </div>
+
+    <script>
+        function showConfirmation(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.closest('form').submit();
+                    Swal.fire(
+                    'Deleted!',
+                    'This Advertisement has been deleted.',
+                    'success'
+                );
+                }
+            });
+        }
+    </script>
 </x-admin-layout>

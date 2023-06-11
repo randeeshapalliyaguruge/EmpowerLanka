@@ -85,4 +85,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product::class);
     }
+
+    public function featured()
+    {
+        return $this->hasMany(Featured::class);
+    }
 }

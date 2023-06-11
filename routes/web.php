@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FeaturedController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 
@@ -38,6 +39,8 @@ Route::middleware([
 
     Route::resource('product', \App\Http\Controllers\Admin\ProductController::class, ['as' => 'user']);
 
+    Route::resource('featured', \App\Http\Controllers\Admin\FeaturedController::class, ['as' => 'user']);
+
 });
 
 Route::prefix('admin')
@@ -57,6 +60,8 @@ Route::prefix('admin')
         })->name('dashboard');
 
         Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+
+        Route::resource('featured', \App\Http\Controllers\Admin\FeaturedController::class);
 
         Route::resource('/category', AdminCategoryController::class)->only([
             'index', 'create', 'edit', 'destroy'
@@ -91,9 +96,11 @@ Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'
 Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class, 'show'])
     ->name('product.show');
 
-Route::get('/featured', \App\Http\Controllers\HomeController::class)
-    ->name('featured');
+Route::get('/featured', [\App\Http\Controllers\FeaturedController::class, 'index'])
+    ->name('featured.index');
 
+Route::get('/featured/{featured}', [\App\Http\Controllers\FeaturedController::class, 'show'])
+    ->name('featured.show');
 
 Route::get('/contact-us', [ContactController::class, 'contact'])
     ->name('contact-us');

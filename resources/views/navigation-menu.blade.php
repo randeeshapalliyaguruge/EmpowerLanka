@@ -20,7 +20,7 @@
                         {{ __('Advertisements') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('featured') }}" :active="request()->routeIs('featured')">
+                    <x-nav-link href="{{ route('featured.index') }}" :active="request()->routeIs('featured.index')">
                         {{ __('Featured Ads') }}
                     </x-nav-link>
 

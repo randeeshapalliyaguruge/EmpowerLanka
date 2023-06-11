@@ -32,7 +32,7 @@ class FeaturedController extends Controller
                  });
              }
 
-            $featured = $featured->orderBy('id', 'DESC')->paginate(12);
+            $featured = $featured->orderBy('id', 'DESC')->paginate(6);
 
             $categories = Category::all();
 

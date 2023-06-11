@@ -1,7 +1,8 @@
 <div>
-    <h3 class="text-lg font-medium leading-7 text-gray-900">Reviews</h3>
+    <h3 class="font-bold text-gray-700 text-[22px] leading-7 mb-1">Reviews</h3>
+    @if ($reviews->count())
     <div class="mt-6 space-y-10 divide-y divide-gray-200 border-b border-t border-gray-200 pb-10">
-        @if ($reviews->count())
+
             @foreach ($reviews as $review)
                 <div class="pt-10 lg:grid lg:grid-cols-12 lg:gap-x-8">
                     <div
@@ -44,8 +45,9 @@
                     </div>
                 </div>
             @endforeach
-        @endif
+
     </div>
+    @endif
     <div class="mt-10 mr-20">
     {{ $reviews->links() }}
     </div>

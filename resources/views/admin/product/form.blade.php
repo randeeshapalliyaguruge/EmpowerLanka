@@ -150,7 +150,7 @@
                     <a href="{{ auth()->user()->hasRole('admin') ? route('admin.product.index') : route('user.product.index') }}" class="text-sm font-semibold leading-6 text-gray-900">
                         Cancel
                     </a>
-                        <button type="submit"
+                        <button type="submit" onclick="showConfirmation()"
                             class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                             Save
                         </button>
@@ -175,4 +175,35 @@
             }))
         })
     </script>
+
+<script>
+    function showConfirmation() {
+        Swal.fire({
+            title: 'Your Advertisement has been saved!',
+            // html: 'I will close in <b></b> milliseconds.',
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const b = Swal.getHtmlContainer().querySelector('b');
+                const timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft();
+                }, 100);
+                // Submit the form after the timer completes
+                setTimeout(() => {
+                    clearInterval(timerInterval);
+                    Swal.close();
+                    document.querySelector('form').submit();
+                }, Swal.getTimerLeft());
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer');
+            }
+        });
+    }
+</script>
 </x-admin-layout>

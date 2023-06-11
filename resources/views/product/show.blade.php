@@ -33,15 +33,15 @@
                                 <p class='text-[#7C7C80] font-[15px] mt-1'>Views: {{ $product->view_count }}</p>
                                 <p class='text-[#7C7C80] font-[15px] mt-1'>Status: {{ $product->status ? 'Active' : 'Inactive' }}</p>
 
-                                <p class='text-[#7C7C80] font-[15px] mt-6' id='phone-number' style='display: none; color: #0FB478; font-weight: bold'>Phone Number: {{ $product->number }}</p>
+                                <p class='text-[#7C7C80] font-[15px] mt-6' id='phone-number' style='display: none; color: #0FB478; font-weight: bold'>Phone: {{ $product->number }}</p>
                                 <p class='text-[#7C7C80] font-[15px] mt-1' id='email' style='display: none; color: #0FB478; font-weight: bold'>Email: {{ $product->user->email }}</p>
 
 
-                                <a href='#' id='contact-details-toggle' class='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
+                                <a href='#' id='contact-details-toggle' class='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-yellow-300 focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                                   View Contact Details
                                 </a>
                                 @auth
-                                <a href="#" id='download-app-toggle' class='block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
+                                <a href="#" id='download-app-toggle' class='block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-yellow-300 hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                                   Actions
                                 </a>
 
@@ -52,12 +52,11 @@
                                     <x-table-action-button>Edit</x-table-action-button>
                                   </a>
                                   @endif
-                                  <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST"
-                                    onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                  <form action="{{ auth()->user()->hasRole('admin') ? route('admin.product.destroy', $product) : route('user.product.destroy', $product) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <x-table-action-red-button>Delete</x-table-action-red-button>
-                                  </form>
+                                    <button type="submit" onclick="showConfirmation(event)" class="font-medium text-red-600 hover:underline">Delete</button>
+                                </form>
 
                                 </div>
                                 @endauth
@@ -80,7 +79,7 @@
                                 document.getElementById('phone-number').style.display = 'none';
                                 document.getElementById('email').style.display = 'none';
                                 contactDetailsToggle.style.display = 'block';
-                              }, 6000); // Change the delay time for phone and email (in milliseconds) as desired
+                              }, 10000); // Change the delay time for phone and email (in milliseconds) as desired
                             });
 
                             downloadAppToggle.addEventListener('click', function(event) {
@@ -91,12 +90,34 @@
                               setTimeout(function() {
                                 editDeleteButtons.style.display = 'none';
                                 downloadAppToggle.style.display = 'block';
-                              }, 3000); // Change the delay time for edit delete button (in milliseconds) as desired
+                              }, 4000); // Change the delay time for edit delete button (in milliseconds) as desired
                             });
                           </script>
 
 
-
+                            <script>
+                                function showConfirmation(event) {
+                                    event.preventDefault();
+                                    Swal.fire({
+                                        title: 'Are you sure?',
+                                        text: "You won't be able to revert this!",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: 'Yes, delete it!'
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            event.target.closest('form').submit();
+                                            Swal.fire(
+                                            'Deleted!',
+                                            'This Advertisement has been deleted.',
+                                            'success'
+                                        );
+                                        }
+                                    });
+                                }
+                            </script>
 
 
 

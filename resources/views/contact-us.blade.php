@@ -5,9 +5,13 @@
         <div class="w-1/2 bg-white rounded-lg mb-10">
             <div class="flex justify-center mt-4">
                 @if (Session::has('message_sent'))
-                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-2 mb-2 rounded relative" role="alert">
-                            <span class="block sm:inline">{{ Session::get('message_sent') }}</span>
-                        </div>
+                <script>
+                    Swal.fire(
+                        'Thank You!',
+                        '{{ Session::get("message_sent") }}',
+                        'success'
+                    );
+                </script>
                     @endif
             </div>
             <div class="container">

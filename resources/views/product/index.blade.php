@@ -74,7 +74,6 @@
         </div>
 
     </div>
-    <x-footer></x-footer>
     </div>
 
 </x-app-layout>

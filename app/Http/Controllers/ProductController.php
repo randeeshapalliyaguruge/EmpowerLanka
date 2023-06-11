@@ -10,9 +10,13 @@ class ProductController extends Controller
 {
     public function index(Request $request)
 {
-    $products = Product::active();
+    $product = Product::active()->get();
 
     $categories = Category::all();
+
+    // new product query
+    $products = (new Product())->newQuery();
+    $searchQuery = $request->query('q');
 
     // Filter by category if a category is selected
     $selectedCategory = $request->query('category');
@@ -23,7 +27,6 @@ class ProductController extends Controller
     }
 
     // Apply search filter if a search query is present
-    $searchQuery = $request->query('q');
     if ($searchQuery) {
         $products = $products->where(function ($query) use ($searchQuery) {
             $query->where('title', 'like', '%' . $searchQuery . '%')
@@ -40,4 +43,13 @@ class ProductController extends Controller
         'categories' => $categories,
     ]);
 }
+
+    public function show(Product $product){
+
+        //dd($product);
+        $product->increment('view_count');
+        return view('product.show', [
+            'product' => $product
+        ]);
+    }
 }

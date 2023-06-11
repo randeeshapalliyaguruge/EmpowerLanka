@@ -12,6 +12,8 @@ class ProductController extends Controller
 {
     $products = Product::active();
 
+    $categories = Category::all();
+
     // Filter by category if a category is selected
     $selectedCategory = $request->query('category');
     if ($selectedCategory) {
@@ -35,7 +37,7 @@ class ProductController extends Controller
         'products' => $products,
         'searchQuery' => $searchQuery,
         'selectedCategory' => $selectedCategory,
-        'categories' => Category::all(),
+        'categories' => $categories,
     ]);
 }
 }

@@ -14,9 +14,16 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['name' => 'Category 1', 'description' => 'Description 1'],
-            ['name' => 'Category 2', 'description' => 'Description 2'],
-            // Add more categories as needed
+            ['name' => 'Electronics', 'description' => 'Buy and sell electronic devices and gadgets.'],
+            ['name' => 'Fashion', 'description' => 'Browse and sell fashion items such as clothing, accessories, and footwear.'],
+            ['name' => 'Home & Garden', 'description' => 'Find furniture, home decor, appliances, and gardening tools.'],
+            ['name' => 'Vehicles', 'description' => 'Buy and sell cars, motorcycles, and other vehicles.'],
+            ['name' => 'Services', 'description' => 'Offer or find various services like repairs, maintenance, and freelancing.'],
+            ['name' => 'Real Estate', 'description' => 'Rent or sell properties including houses, apartments, and commercial spaces.'],
+            ['name' => 'Business & Industrial', 'description' => 'Discover equipment, machinery, and supplies for business purposes.'],
+            ['name' => 'Sports & Fitness', 'description' => 'Buy, sell, or trade sports equipment, fitness gear, and accessories.'],
+            ['name' => 'Toys & Games', 'description' => 'Find or sell toys, board games, and other recreational items.'],
+            ['name' => 'Jobs', 'description' => 'Explore job opportunities or post job listings for small businesses.'],
         ];
 
         Category::insert($categories);

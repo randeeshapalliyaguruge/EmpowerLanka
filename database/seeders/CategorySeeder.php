@@ -55,9 +55,7 @@ class CategorySeeder extends Seeder
             ),
         );
 
-        foreach ($productCategories as $productCategory) {
-            \App\Models\Category::create($productCategory);
-        }
+
 
     }
 }

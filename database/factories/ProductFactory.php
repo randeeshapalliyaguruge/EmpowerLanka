@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
             'user_id' => 2,
             'title' => $this->faker->text(20),
-            'price' => $this->faker->randomFloat(2, 0, 100),
+            'price' => $this->faker->randomFloat(2, 1000, 5000),
             'description' => $this->faker->text,
             'image' => 'https://placehold.co/600x400',
             'status' => 1

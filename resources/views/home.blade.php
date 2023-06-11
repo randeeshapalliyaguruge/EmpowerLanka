@@ -248,7 +248,7 @@
           <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
             Discover game-changing solutions that will revolutionize the way you work and grow your business.
           </p>
-          <a href="../index.html" class="font-bold text-blueGray-700 mt-8">Check Notus JS!</a>
+
         </div>
         <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
           <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-2 shadow-lg rounded-lg bg-softgreen">

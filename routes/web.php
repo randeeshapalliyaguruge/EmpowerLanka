@@ -91,8 +91,8 @@ Route::get('/products', [\App\Http\Controllers\ProductController::class, 'index'
 Route::get('/product/{product}', [\App\Http\Controllers\ProductController::class, 'show'])
     ->name('product.show');
 
-Route::get('/promotions', \App\Http\Controllers\HomeController::class)
-    ->name('promotions');
+Route::get('/featured', \App\Http\Controllers\HomeController::class)
+    ->name('featured');
 
 
 Route::get('/contact-us', [ContactController::class, 'contact'])

@@ -17,15 +17,15 @@
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">
-                        {{ __('Products & Services') }}
+                        {{ __('Advertisements') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('promotions') }}" :active="request()->routeIs('promotions')">
-                        {{ __('Promotions') }}
+                    <x-nav-link href="{{ route('featured') }}" :active="request()->routeIs('featured')">
+                        {{ __('Featured Ads') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('contact-us') }}" :active="request()->routeIs('contact')">
-                        {{ __('Contact') }}
+                        {{ __('Contact Us') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -127,12 +127,12 @@
                                         {{ ucfirst(auth::user()->role->value) }}
                                     </div> --}}
 
-                                    <x-dropdown-link href="{{ route('admin.user.index') }}">
+                                    {{-- <x-dropdown-link href="{{ route('admin.user.index') }}">
                                         {{ __('User') }}
-                                    </x-dropdown-link>
+                                    </x-dropdown-link> --}}
 
                                     <x-dropdown-link href="{{ route('admin.product.index') }}">
-                                        {{ __('Ads') }}
+                                        {{ __('Dashboard') }}
                                     </x-dropdown-link>
                                     <div class="border-t border-gray-200"></div>
                                 @endcan
@@ -140,7 +140,7 @@
                                 @can('accessUserFeatures')
 
                                     <x-dropdown-link href="{{ route('user.product.index') }}">
-                                        {{ __('Ads') }}
+                                        {{ __('Dashboard') }}
                                     </x-dropdown-link>
                                 @endcan
 

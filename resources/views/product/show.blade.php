@@ -21,7 +21,7 @@
                         <!-- component -->
                             <!-- This is an component for Seller Details -->
 
-                            <div class='w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'>
+                            <div class='w-full max-w-md  mx-auto bg-white rounded-3xl shadow-xl overflow-hidden'>
                                 <div class='max-w-md mx-auto'>
                                   <div class='p-4 sm:p-6'>
                                     <p class='font-bold text-gray-700 text-[22px] leading-7 mb-1'>Seller Details: {{ $product->user->name }}</p>
@@ -39,7 +39,6 @@
                                     <a href='#' id='contact-details-toggle' class='block mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                                       View Contact Details
                                     </a>
-                                    <p id='click-count' class='text-[#7C7C80] font-[15px] mt-1'>Clicked: 0 times</p>
                                     @auth
                                     <a href="#" id='download-app-toggle' class='block mt-1.5 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#F2ECE7] hover:text-[#000000dd] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80'>
                                       Actions
@@ -65,7 +64,6 @@
                                 var contactDetailsToggle = document.getElementById('contact-details-toggle');
                                 var downloadAppToggle = document.getElementById('download-app-toggle');
                                 var editDeleteButtons = document.getElementById('edit-delete-buttons');
-                                var clickCount = 0;
 
                                 contactDetailsToggle.addEventListener('click', function(event) {
                                   event.preventDefault();
@@ -78,9 +76,6 @@
                                     document.getElementById('email').style.display = 'none';
                                     contactDetailsToggle.style.display = 'block';
                                   }, 6000); // Change the delay time for phone and email (in milliseconds) as desired
-
-                                  clickCount++;
-                                  document.getElementById('click-count').textContent = 'Clicked: ' + clickCount + ' times';
                                 });
 
                                 downloadAppToggle.addEventListener('click', function(event) {

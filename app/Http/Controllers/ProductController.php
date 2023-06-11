@@ -10,44 +10,46 @@ class ProductController extends Controller
 {
     public function index(Request $request)
 {
-    $product = Product::active()->get();
-
-    $categories = Category::all();
-
-    // new product query
-    $products = (new Product())->newQuery();
     $searchQuery = $request->query('q');
+        $selectedCategory = $request->query('category');
 
-    // Filter by category if a category is selected
-    $selectedCategory = $request->query('category');
-    if ($selectedCategory) {
-        $products = $products->whereHas('categories', function ($query) use ($selectedCategory) {
-            $query->where('name', $selectedCategory);
-        });
-    }
+        $products = Product::query();
 
-    // Apply search filter if a search query is present
-    if ($searchQuery) {
-        $products = $products->where(function ($query) use ($searchQuery) {
-            $query->where('title', 'like', '%' . $searchQuery . '%')
-                ->orWhere('description', 'like', '%' . $searchQuery . '%');
-        });
-    }
+        // Filter by category if a category is selected
+        if ($selectedCategory) {
+            $category = Category::where('name', $selectedCategory)->first();
+            if ($category) {
+                $products = $products->where('category_id', $category->id);
+            }
+        }
 
-    $products = $products->orderBy('id', 'DESC')->paginate(12);
+         // Apply search filter if a search query is present
+         $searchQuery = $request->query('q');
+         if ($searchQuery) {
+             $products = $products->where(function ($query) use ($searchQuery) {
+                 $query->where('title', 'like', '%' . $searchQuery . '%')
+                     ->orWhere('description', 'like', '%' . $searchQuery . '%');
+             });
+         }
 
-    return view('product.index', [
-        'products' => $products,
-        'searchQuery' => $searchQuery,
-        'selectedCategory' => $selectedCategory,
-        'categories' => $categories,
-    ]);
+        $products = $products->orderBy('id', 'DESC')->paginate(12);
+
+        $categories = Category::all();
+
+        return view('product.index', [
+            'products' => $products,
+            'searchQuery' => $searchQuery,
+            'selectedCategory' => $selectedCategory,
+            'categories' => $categories,
+        ]);
 }
 
     public function show(Product $product){
 
         //dd($product);
         $product->increment('view_count');
+
+
         return view('product.show', [
             'product' => $product
         ]);

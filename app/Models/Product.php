@@ -25,11 +25,6 @@ class Product extends Model
         return $this->belongsTo(\App\Models\Category::class);
     }
 
-    public function categories()
-    {
-        return $this->belongsToMany(\App\Models\Category::class);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);

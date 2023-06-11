@@ -5,13 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use App\Models\User;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
         $products = (new Product())->newQuery();
@@ -30,7 +35,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
+
         return view('admin.product.form', [
+            'categories' => $categories,
             'product' => new Product()
         ]);
     }
@@ -78,9 +86,12 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $categories = Category::all();
+
         if(auth()->user()->id == $product->user_id){
             return view('admin.product.form', [
-                        'product' => $product
+                        'product' => $product,
+                        'categories' => $categories,
                     ]);
         }
 
@@ -103,6 +114,7 @@ class ProductController extends Controller
 
         $product->update([
             'title' => $validated['title'],
+            'category_id' => $validated['category_id'],
             'description' => $validated['description'],
             'number' => $validated['number'],
             'price' => $validated['price'],

@@ -25,6 +25,7 @@
                             <x-slot name="head">
                                 <x-th>Ad ID</x-th>
                                 <x-th>Title</x-th>
+                                <x-th>Category</x-th>
                                 @can('accessAdministration')
                                 <x-th>Publisher - ID</x-th>
                                 @endcan
@@ -44,6 +45,8 @@
                                                 {{ $product->title }}
                                             </a>
                                         </x-td>
+                                        <x-td>
+                                            {{ $product->category ? $product->category->name : 'No Category' }}</x-td>
                                         @can('accessAdministration')
                                         <x-td>{{ $product->user->name }} - {{ $product->user_id }} </x-td>
                                         @endcan

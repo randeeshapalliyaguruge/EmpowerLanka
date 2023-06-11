@@ -67,6 +67,21 @@
                             @enderror
                         </div>
 
+                        <div class="col-span-full">
+                            <label for="category_id" class="block text-sm font-medium leading-6 text-gray-900">Category</label>
+                            <div class="mt-2">
+                                <select name="category_id" id="category_id" class="form-control">
+                                    <option value="">Select a category</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}" @if($product->category_id == $category->id) selected @endif>{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            @error('category')
+                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                            @enderror
+                        </div>
+
                         <div class="sm:col-span-4">
                             <label for="price" class="block text-sm font-medium leading-6 text-gray-900">
                                 Price

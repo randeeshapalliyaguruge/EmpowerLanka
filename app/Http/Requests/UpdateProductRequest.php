@@ -23,6 +23,7 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'category_id' => 'required|exists:categories,id', // 'exists:categories,id' means 'exists in categories table, id column
             'description' => 'required|string',
             'number' => 'required|string',
             'price' => 'required|numeric',

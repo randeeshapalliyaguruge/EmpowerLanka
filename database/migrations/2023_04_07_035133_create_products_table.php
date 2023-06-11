@@ -18,6 +18,8 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
 
+            $table->unsignedBigInteger('category_id')->nullable();
+
             $table->string('title');
 
             $table->longText('description')->nullable();
@@ -34,6 +36,14 @@ return new class extends Migration
             $table->unsignedInteger('subscription_count')->default(0);
 
             $table->timestamps();
+        });
+
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
         });
     }
 
